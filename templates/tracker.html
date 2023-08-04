@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="icon" type="images/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS18w4YlKG4cQWdTgXrNZSDm16Ial2AyrnRFA&usqp=CAU" />
+    <title href="index.html">Artist</title>
+</head>
+<header class="header">
+    <div>
+
+        <a class="home" href="http://127.0.0.1:3000/">Home</a>
+        <a class="gp" href="http://127.0.0.1:3000/"><h1>Groupie-tracker</h1> </a>
+    </div>
+</header>
+<body>
+    <div class="Artist">
+        <img class="center" src="{{.Art.Image}}" alt="{{.Art.Name}}">
+        <h1>{{.Art.Name}}</h1>
+        <h3>The musical band {{.Art.Name}} has been created in {{.Art.CreationDate}}<br>The band produced its first album in: {{.Art.FirstAlbum}}</h3>
+        <ul>
+            <h4>Members:</h4>
+            {{range .Art.Members}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+    </div>
+    <hr>
+    <div class="Location" style="align-items: center;">
+        <h1 style="text-align: center;">List of famous concerts</h1>
+        {{range $key, $value := .Rel.DatesLocations}}
+        <div class="text" style="text-align: center;">
+            <h4>Location of concerts {{$key}}</h4>
+            <h4>Dates: {{$value}}</h4>
+        </div>
+        {{end}}
+    </div>
+    <br>
+</body>
+</html>
